@@ -62,3 +62,7 @@ template = env.get_template('showpersons.txt')
 
 output = template.render(persons=persons)
 print(output)
+
+file1 = open("rss/list.opml","w")
+file1.write(output)
+file1.close()
