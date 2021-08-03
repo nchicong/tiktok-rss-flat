@@ -2,6 +2,7 @@ from TikTokApi import TikTokApi
 import csv
 from feedgen.feed import FeedGenerator
 from datetime import datetime, timezone
+from jinja2 import Environment, FileSystemLoader
 
 # Normal GitHub Pages URL
 # ghPagesURL = "https://conoro.github.io/tiktok-rss-flat/"
@@ -51,8 +52,16 @@ with open('subscriptions.csv') as f:
 
         fg.rss_file('rss/' + user + '.xml') # Write the RSS feed to a file
 
+        file_loader = FileSystemLoader('templates')
+        env = Environment(loader=file_loader)
 
-from jinja2 import Environment, FileSystemLoader
+        template = env.get_template('template.opml')
+
+        output = template.render(opmlUsers=opmlUsers)
+
+        file1 = open("rss/list.opml","w")
+        file1.write(output)
+        file1.close()
 
 # persons = [
 #     {'name': 'Andrej', 'age': 34},
@@ -63,13 +72,3 @@ from jinja2 import Environment, FileSystemLoader
 #     {'name': 'Dragomir', 'age': 54}
 # ]
 
-file_loader = FileSystemLoader('templates')
-env = Environment(loader=file_loader)
-
-template = env.get_template('template.opml')
-
-output = template.render(opmlUsers=opmlUsers)
-
-file1 = open("rss/list.opml","w")
-file1.write(output)
-file1.close()
