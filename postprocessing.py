@@ -13,6 +13,8 @@ api = TikTokApi.get_instance()
 
 count = 10
 
+opmlUsers = []
+
 with open('subscriptions.csv') as f:
     cf = csv.DictReader(f, fieldnames=['username'])
     for row in cf:
@@ -32,6 +34,12 @@ with open('subscriptions.csv') as f:
         fg.link( href=ghPagesURL + 'rss/' + user + '.xml', rel='self' )
         fg.language('en')
 
+        opmlUsers.append({
+            "text": user,
+            "title": user + ' TikTok',
+            "xmlUrl": ghPagesURL + 'rss/' + user + '.xml'
+        })
+
         for tiktok in tiktoks:
             fe = fg.add_entry()
             link = "https://www.tiktok.com/@" + user + "/video/" + tiktok['id']
@@ -46,22 +54,21 @@ with open('subscriptions.csv') as f:
 
 from jinja2 import Environment, FileSystemLoader
 
-persons = [
-    {'name': 'Andrej', 'age': 34},
-    {'name': 'Mark', 'age': 17},
-    {'name': 'Thomas', 'age': 44},
-    {'name': 'Lucy', 'age': 14},
-    {'name': 'Robert', 'age': 23},
-    {'name': 'Dragomir', 'age': 54}
-]
+# persons = [
+#     {'name': 'Andrej', 'age': 34},
+#     {'name': 'Mark', 'age': 17},
+#     {'name': 'Thomas', 'age': 44},
+#     {'name': 'Lucy', 'age': 14},
+#     {'name': 'Robert', 'age': 23},
+#     {'name': 'Dragomir', 'age': 54}
+# ]
 
 file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
 
-template = env.get_template('showpersons.txt')
+template = env.get_template('template.opml')
 
-output = template.render(persons=persons)
-print(output)
+output = template.render(opmlUsers=opmlUsers)
 
 file1 = open("rss/list.opml","w")
 file1.write(output)
