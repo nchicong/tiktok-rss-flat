@@ -1,6 +1,10 @@
-Andrej 34
-Mark 17
-Thomas 44
-Lucy 14
-Robert 23
-Dragomir 54
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>Subscriptions of nchicong41</title>
+  </head>
+  <body>
+    <outline text="Cross Dominant" title="Cross Dominant" type="rss" xmlUrl="https://conoroneill.net/index.xml" htmlUrl="https://conoroneill.net/"/>
+    
+  </body>
+</opml>
