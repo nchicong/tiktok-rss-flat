@@ -57,7 +57,7 @@ with open('subscriptions.csv') as f:
 
         template = env.get_template('template.opml')
 
-        output = template.render(opmlUsers=opmlUsers)
+        output = template.render(users=opmlUsers)
 
         file1 = open("rss/list.opml","w")
         file1.write(output)
