@@ -55,7 +55,7 @@ with open('subscriptions.csv') as f:
         file_loader = FileSystemLoader('templates')
         env = Environment(loader=file_loader)
 
-        template = env.get_template('teamplates/template.opml')
+        template = env.get_template('templates/template.opml')
 
         output = template.render(opmlUsers=opmlUsers)
 
