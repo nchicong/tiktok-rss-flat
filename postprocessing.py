@@ -22,14 +22,13 @@ os.makedirs(dest_dir)
 import urllib.request, json
 with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11eb-825b-2be69b85a7a0") as url:
     data = json.loads(url.read().decode())
-    print(data)
 
 # with open('subscriptions.csv') as f:
 #     cf = csv.DictReader(f, fieldnames=['username'])
     for row in data["followingArray"]:
         # user = row['username']
-        print(row)
         user = row;
+        print(row)
 
         tiktoks = api.byUsername(user, count=count)
         
