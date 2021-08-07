@@ -12,11 +12,12 @@ ghPagesURL = "https://nchicong.github.io/tiktok-rss-flat/"
 api = TikTokApi.get_instance()
 
 count = 10
-
 opmlUsers = []
+dest_dir = "rss"
 
-shutil.rmtree("rss")
-os.makedirs("rss")
+if os.path.exists(dest_dir):
+    shutil.rmtree(dest_dir)
+os.makedirs(dest_dir)
 
 import urllib.request, json
 with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11eb-825b-2be69b85a7a0") as url:
