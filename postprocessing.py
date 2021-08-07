@@ -62,13 +62,3 @@ with open('subscriptions.csv') as f:
         file1 = open("rss/list.opml","w")
         file1.write(output)
         file1.close()
-
-# persons = [
-#     {'name': 'Andrej', 'age': 34},
-#     {'name': 'Mark', 'age': 17},
-#     {'name': 'Thomas', 'age': 44},
-#     {'name': 'Lucy', 'age': 14},
-#     {'name': 'Robert', 'age': 23},
-#     {'name': 'Dragomir', 'age': 54}
-# ]
-
