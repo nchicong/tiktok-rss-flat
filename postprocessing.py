@@ -26,7 +26,7 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
 
 # with open('subscriptions.csv') as f:
 #     cf = csv.DictReader(f, fieldnames=['username'])
-    for row in data.followingArray:
+    for row in data["followingArray"]:
         # user = row['username']
         print(row)
         user = row;
