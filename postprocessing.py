@@ -4,6 +4,7 @@ from feedgen.feed import FeedGenerator
 from datetime import datetime, timezone
 from jinja2 import Environment, FileSystemLoader
 import shutil
+import os
 
 # Custom Domain
 ghPagesURL = "https://nchicong.github.io/tiktok-rss-flat/"
