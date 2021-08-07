@@ -21,17 +21,14 @@ with open('subscriptions.csv') as f:
     for row in cf:
         user = row['username']
 
-        print (user)
-
         tiktoks = api.byUsername(user, count=count)
         
         fg = FeedGenerator()
         fg.id('https://www.tiktok.com/@' + user)
         fg.title(user)
-        fg.author( {'name':'Conor ONeill','email':'conor@conoroneill.com'} )
         fg.link( href='http://tiktok.com', rel='alternate' )
         fg.logo(ghPagesURL + 'tiktok-rss.png')
-        fg.subtitle('OK Boomer, all the latest TikToks from ' + user)
+        fg.subtitle('TikToks from ' + user)
         fg.link( href=ghPagesURL + 'rss/' + user + '.xml', rel='self' )
         fg.language('en')
 
@@ -42,13 +39,14 @@ with open('subscriptions.csv') as f:
         })
 
         for tiktok in tiktoks:
+            print(tiktok['video'])
             fe = fg.add_entry()
             link = "https://www.tiktok.com/@" + user + "/video/" + tiktok['id']
             fe.id(link)
             fe.published(datetime.fromtimestamp(tiktok['createTime'], timezone.utc))
             fe.title(tiktok['desc'])
             fe.link(href=link)
-            fe.description("<img src='" + tiktok['video']['originCover'] + "' />")
+            fe.description("<a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a>")
 
         fg.rss_file('rss/' + user + '.xml') # Write the RSS feed to a file
 
@@ -59,6 +57,6 @@ with open('subscriptions.csv') as f:
 
         output = template.render(users=opmlUsers)
 
-        file1 = open("rss/list.opml","w")
+        file1 = open("rss/list.opml", "w")
         file1.write(output)
         file1.close()
