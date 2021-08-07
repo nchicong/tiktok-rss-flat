@@ -1,10 +1,11 @@
 from TikTokApi import TikTokApi
-import csv
+# import csv
 from feedgen.feed import FeedGenerator
 from datetime import datetime, timezone
 from jinja2 import Environment, FileSystemLoader
 import shutil
 import os
+from html import escape
 
 # Custom Domain
 ghPagesURL = "https://nchicong.github.io/tiktok-rss-flat/"
@@ -55,7 +56,7 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
             fe.published(datetime.fromtimestamp(tiktok['createTime'], timezone.utc))
             fe.title(tiktok['desc'])
             fe.link(href=link)
-            fe.description("<![CDATA[<a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "'>Link</a>]]>")
+            fe.description(escape("<a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "'>Link</a>"))
             # fe.content(content=str("<html><body><a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "'>Link</a></body></html>"), type="html")
 
         fg.rss_file('rss/' + user + '.xml') # Write the RSS feed to a file
