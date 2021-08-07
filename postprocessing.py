@@ -39,12 +39,12 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
         fg.link( href='http://tiktok.com', rel='alternate' )
         fg.logo(ghPagesURL + 'tiktok-rss.png')
         fg.subtitle('TikToks from ' + user)
-        fg.link( href=ghPagesURL + 'rss/' + user + '.xml', rel='self' )
+        fg.link( href=ghPagesURL + 'rss/' + user + '.xml', rel='self')
         fg.language('en')
 
         opmlUsers.append({
             "text": user,
-            "title": user + ' TikTok',
+            "title": user,
             "xmlUrl": ghPagesURL + 'rss/' + user + '.xml'
         })
 
@@ -55,7 +55,7 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
             fe.published(datetime.fromtimestamp(tiktok['createTime'], timezone.utc))
             fe.title(tiktok['desc'])
             fe.link(href=link)
-            fe.description("<a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a>")
+            fe.description("<html><body><a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a></body></html>")
 
         fg.rss_file('rss/' + user + '.xml') # Write the RSS feed to a file
 
