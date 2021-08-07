@@ -3,9 +3,7 @@ import csv
 from feedgen.feed import FeedGenerator
 from datetime import datetime, timezone
 from jinja2 import Environment, FileSystemLoader
-
-# Normal GitHub Pages URL
-# ghPagesURL = "https://conoro.github.io/tiktok-rss-flat/"
+import shutil
 
 # Custom Domain
 ghPagesURL = "https://nchicong.github.io/tiktok-rss-flat/"
@@ -15,6 +13,9 @@ api = TikTokApi.get_instance()
 count = 10
 
 opmlUsers = []
+
+shutil.rmtree("rss")
+os.makedirs("rss")
 
 with open('subscriptions.csv') as f:
     cf = csv.DictReader(f, fieldnames=['username'])
