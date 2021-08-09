@@ -32,6 +32,11 @@
     <outline text="khatienganh" title="khatienganh" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/khatienganh.xml" />
     <outline text="fedenglish" title="fedenglish" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/fedenglish.xml" />
     <outline text="tienganhthuhai" title="tienganhthuhai" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/tienganhthuhai.xml" />
+    <outline text="elight.learning.english" title="elight.learning.english" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/elight.learning.english.xml" />
+    <outline text="nguyenhoabinhshark" title="nguyenhoabinhshark" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/nguyenhoabinhshark.xml" />
+    <outline text="tienganhtheory" title="tienganhtheory" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/tienganhtheory.xml" />
+    <outline text="hoangbarry" title="hoangbarry" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/hoangbarry.xml" />
+    <outline text="binochemtienganh" title="binochemtienganh" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/binochemtienganh.xml" />
     
   </body>
 </opml>
