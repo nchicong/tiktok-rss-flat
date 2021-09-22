@@ -7,10 +7,10 @@
   {% for fe in feedEntries -%}
   <entry>
     <title type="html">{{ fe.title }}</title>
-    <link href="{{ fe.link }}" rel="alternate" type="text/html" title="{{ fe.title }}"/>
+    <link href="{{ fe.link }}" rel="alternate" type="text/html"/>
     <published>{{ fe.published }} </published>
     <id>{{ fe.link }}</id>
-    <content type="html" xml:base="{{ fe.link }}">{{ fe.content }}</content>
+    <content type="html" xml:base="{{ fe.link }}"><![CDATA[{{ fe.content }}]]></content>
   </entry>
   {% endfor %}
 </feed>
