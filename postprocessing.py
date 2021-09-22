@@ -58,7 +58,7 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
             fe.link(href=link)
             # fe.description("<table style='width:100%'><tr><td style='text-align:center'><a href='" + link + "'>Link</a></td><td><img src='" + tiktok['video']['originCover'] + "' /></td></tr></table>")
             # fe.description("<a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><br/><a href='" + link + "'>Link</a>")
-            fe.content(content="<p><a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "'>Link</a></p>", type="html", src=link)
+            fe.content("<p><a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "'>Link</a></p>")
 
         fg.rss_file('rss/' + user + '.xml') # Write the RSS feed to a file
 
