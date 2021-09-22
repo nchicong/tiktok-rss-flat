@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <opml version="1.0">
   <head>
-    <title>Subscriptions of nchicong41</title>
+    <title>Subscriptions of nchicong</title>
   </head>
   <body>
     {% for user in users -%}

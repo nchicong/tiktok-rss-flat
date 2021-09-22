@@ -37,11 +37,20 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
         fg.id('https://www.tiktok.com/@' + user)
         fg.title(user)
         fg.author( {'name':'Conor ONeill','email':'conor@conoroneill.com'} )
-        fg.link( href='http://tiktok.com', rel='alternate' )
         fg.logo(ghPagesURL + 'tiktok-rss.png')
         fg.subtitle('TikToks from ' + user)
         fg.link( href=ghPagesURL + 'rss/' + user + '.xml', rel='self')
         fg.language('en')
+
+        # feed = {
+        #     "title": user,
+        #     "id": 'https://www.tiktok.com/@' + user
+        #     "author": user,
+        #     "link": "https://tiktok.com",
+        #     "subtitle": ('TikToks from ' + user),
+
+
+        # }
 
         opmlUsers.append({
             "text": user,
@@ -58,7 +67,7 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
             fe.link(href=link)
             # fe.description("<table style='width:100%'><tr><td style='text-align:center'><a href='" + link + "'>Link</a></td><td><img src='" + tiktok['video']['originCover'] + "' /></td></tr></table>")
             # fe.description("<a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><br/><a href='" + link + "'>Link</a>")
-            fe.content("<p><a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "?is_copy_url=1&is_from_webapp=v1'>Link</a></p>", link, "html")
+            fe.content(content="<p><a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "?is_copy_url=1&is_from_webapp=v1'>Link</a></p>", src=link, type="html")
 
         fg.rss_file('rss/' + user + '.xml') # Write the RSS feed to a file
 
