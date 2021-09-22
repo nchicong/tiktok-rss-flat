@@ -56,7 +56,9 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
             fe.published(datetime.fromtimestamp(tiktok['createTime'], timezone.utc))
             fe.title(tiktok['desc'])
             fe.link(href=link)
-            fe.description("<![CDATA[<a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><br/><a href='" + link + "'>Link</a>]]>")
+            fe.description("<table><tr><td style='text-align:center'><a href='" + link + "'>Link</a></td><td><img src='" + tiktok['video']['originCover'] + "' /></td></tr></table>")
+            # fe.description("<table style='width:100%'><tr><td style='text-align:center'><a href='" + link + "'>Link</a></td><td><img src='" + tiktok['video']['originCover'] + "' /></td></tr></table>")
+            # fe.description("<a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><br/><a href='" + link + "'>Link</a>")
             # fe.content(content=str("<html><body><a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "'>Link</a></body></html>"), type="html")
 
         fg.rss_file('rss/' + user + '.xml') # Write the RSS feed to a file
