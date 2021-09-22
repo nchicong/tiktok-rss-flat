@@ -46,7 +46,7 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
         feed = {
             "title": user,
             "id": 'https://www.tiktok.com/@' + user,
-            "link": "https://tiktok.com",
+            "link": ghPagesURL + 'rss/' + user + '.xml',
             "subtitle": 'TikToks from ' + user
         }
         feedEntries = []

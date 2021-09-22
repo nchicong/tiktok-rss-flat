@@ -1,6 +1,6 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <generator>nchicong41@gmail.com</generator>
-  <link href="{{ fg.xmlLink }}" rel="self" type="application/atom+xml"/>
+  <link href="{{ f.link }}" rel="self" type="application/atom+xml"/>
   <id>{{ f.id }}</id>
   <title type="html">{{ f.title }}</title>
   <subtitle>{{ f.subtitle }}</subtitle>
