@@ -53,8 +53,8 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
 
 
         for tiktok in tiktoks:
+            link = "https://www.tiktok.com/@" + user + "/video/" + tiktok['id']
             # fe = fg.add_entry()
-            # link = "https://www.tiktok.com/@" + user + "/video/" + tiktok['id']
             # fe.id(link)
             # fe.published(datetime.fromtimestamp(tiktok['createTime'], timezone.utc))
             # fe.title(tiktok['desc'])
