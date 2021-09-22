@@ -1,6 +1,5 @@
 from TikTokApi import TikTokApi
-# import csv
-from feedgen.feed import FeedGenerator
+# from feedgen.feed import FeedGenerator
 from datetime import datetime, timezone
 from jinja2 import Environment, FileSystemLoader
 import shutil
@@ -74,7 +73,7 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
         # fg.rss_file('rss/' + user + '.xml') # Write the RSS feed to a file
 
         xmlTemplate = env.get_template('template.xml')
-        xmlOutput = xmlTemplate.render(f=feed, fe=feedEntries)
+        xmlOutput = xmlTemplate.render(f=feed, feedEntries=feedEntries)
         xmlFile = open('rss/' + user + '.xml', "w")
         xmlFile.write(xmlOutput)
         xmlFile.close()
