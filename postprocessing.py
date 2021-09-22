@@ -12,6 +12,9 @@ ghPagesURL = "https://nchicong.github.io/tiktok-rss-flat/"
 
 api = TikTokApi.get_instance()
 
+file_loader = FileSystemLoader('templates')
+env = Environment(loader=file_loader)
+
 count = 10
 opmlUsers = []
 dest_dir = "rss"
@@ -29,28 +32,53 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
     for row in data["followingArray"]:
         # user = row['username']
         user = row;
-        print(row)
 
         tiktoks = api.by_username(user, count=count)
         
-        fg = FeedGenerator()
-        fg.id('https://www.tiktok.com/@' + user)
-        fg.title(user)
-        fg.author( {'name':'Conor ONeill','email':'conor@conoroneill.com'} )
-        fg.logo(ghPagesURL + 'tiktok-rss.png')
-        fg.subtitle('TikToks from ' + user)
-        fg.link( href=ghPagesURL + 'rss/' + user + '.xml', rel='self')
-        fg.language('en')
+        # fg = FeedGenerator()
+        # fg.id('https://www.tiktok.com/@' + user)
+        # fg.title(user)
+        # fg.author( {'name':'Conor ONeill','email':'conor@conoroneill.com'} )
+        # fg.logo(ghPagesURL + 'tiktok-rss.png')
+        # fg.subtitle('TikToks from ' + user)
+        # fg.link( href=ghPagesURL + 'rss/' + user + '.xml', rel='self')
+        # fg.language('en')
 
-        # feed = {
-        #     "title": user,
-        #     "id": 'https://www.tiktok.com/@' + user
-        #     "author": user,
-        #     "link": "https://tiktok.com",
-        #     "subtitle": ('TikToks from ' + user),
+        feed = {
+            "title": user,
+            "id": 'https://www.tiktok.com/@' + user
+            "link": "https://tiktok.com",
+            "subtitle": 'TikToks from ' + user
+        }
+        feedEntries = []
 
 
-        # }
+        for tiktok in tiktoks:
+            # fe = fg.add_entry()
+            # link = "https://www.tiktok.com/@" + user + "/video/" + tiktok['id']
+            # fe.id(link)
+            # fe.published(datetime.fromtimestamp(tiktok['createTime'], timezone.utc))
+            # fe.title(tiktok['desc'])
+            # fe.link(href=link)
+            # # fe.description("<table style='width:100%'><tr><td style='text-align:center'><a href='" + link + "'>Link</a></td><td><img src='" + tiktok['video']['originCover'] + "' /></td></tr></table>")
+            # # fe.description("<a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><br/><a href='" + link + "'>Link</a>")
+            # fe.content(content="<p><a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "?is_copy_url=1&is_from_webapp=v1'>Link</a></p>", src=link, type="html")
+
+            feedEntries.append({
+              "link": "https://www.tiktok.com/@" + user + "/video/" + tiktok['id'],
+              "published": datetime.fromtimestamp(tiktok['createTime'], timezone.utc),
+              "title": tiktok['desc'],
+              "content": "<p><a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "?is_copy_url=1&is_from_webapp=v1'>Link</a></p>"
+            })
+
+        # fg.rss_file('rss/' + user + '.xml') # Write the RSS feed to a file
+
+        xmlTemplate = env.get_template('template.xml')
+        xmlOutput = xmlTemplate.render(f=feed, fe=feedEntries)
+        xmlFile = open('rss/' + user + '.xml', "w")
+        xmlFile.write(xmlOutput)
+        xmlFile.close()
+
 
         opmlUsers.append({
             "text": user,
@@ -58,26 +86,10 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
             "xmlUrl": ghPagesURL + 'rss/' + user + '.xml'
         })
 
-        for tiktok in tiktoks:
-            fe = fg.add_entry()
-            link = "https://www.tiktok.com/@" + user + "/video/" + tiktok['id']
-            fe.id(link)
-            fe.published(datetime.fromtimestamp(tiktok['createTime'], timezone.utc))
-            fe.title(tiktok['desc'])
-            fe.link(href=link)
-            # fe.description("<table style='width:100%'><tr><td style='text-align:center'><a href='" + link + "'>Link</a></td><td><img src='" + tiktok['video']['originCover'] + "' /></td></tr></table>")
-            # fe.description("<a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><br/><a href='" + link + "'>Link</a>")
-            fe.content(content="<p><a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "?is_copy_url=1&is_from_webapp=v1'>Link</a></p>", src=link, type="html")
 
-        fg.rss_file('rss/' + user + '.xml') # Write the RSS feed to a file
+    opmlTemplate = env.get_template('template.opml')
+    opmlOutput = opmlTemplate.render(users=opmlUsers)
 
-        file_loader = FileSystemLoader('templates')
-        env = Environment(loader=file_loader)
-
-        template = env.get_template('template.opml')
-
-        output = template.render(users=opmlUsers)
-
-        file1 = open("rss/list.opml", "w")
-        file1.write(output)
-        file1.close()
+    opmlFile = open("rss/list.opml", "w")
+    opmlFile.write(opmlOutput)
+    opmlFile.close()
