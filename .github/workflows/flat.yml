@@ -5,6 +5,7 @@ on:
       - .github/workflows/flat.yml
       - postprocess.ts
       - postprocessing.py
+      - templates/**
   workflow_dispatch: null
   schedule:
     - cron: 45 * * * *
