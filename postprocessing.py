@@ -67,6 +67,7 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
               "link": "https://www.tiktok.com/@" + user + "/video/" + tiktok['id'],
               "published": datetime.fromtimestamp(tiktok['createTime'], timezone.utc),
               "title": tiktok['desc'],
+              "tiktokId": tiktok['id'],
               "content": "<p><a href='" + link + "'><img src='" + tiktok['video']['originCover'] + "' /></a><a href='" + link + "?is_copy_url=1&is_from_webapp=v1'>Link</a></p>"
             })
 
