@@ -10,7 +10,7 @@
     <link href="{{ fe.link }}" rel="alternate" type="text/html"/>
     <published>{{ fe.published }} </published>
     <id>{{ fe.link }}</id>
-    <content type="html" xml:base="{{ fe.link }}"><![CDATA[<div style="max-width: 86vh;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%; padding-top: 120px;"><iframe src="https://www.tiktok.com/embed/{{ fe.tiktokId }}" allow="fullscreen" style="position: absolute; top: 0px; left: 0px; height: 100%; width: 100%;"></iframe></div>]]></content>
+    <content type="html" xml:base="{{ fe.link }}"><![CDATA[<a href="{{ fe.link }}"><img src="{{ fe.image }}" /></a></br><a href={{ fe.link }}">Link</a> <div style="max-width: 66vh;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%; padding-top: 120px;"><iframe src="https://www.tiktok.com/embed/{{ fe.tiktokId }}" allow="fullscreen" style="position: absolute; top: 0px; left: 0px; height: 100%; width: 100%;"></iframe></div>]]></content>
   </entry>
   {% endfor %}
 </feed>
