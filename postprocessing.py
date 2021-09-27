@@ -9,7 +9,7 @@ from html import escape
 # Custom Domain
 ghPagesURL = "https://nchicong.github.io/tiktok-rss-flat/"
 
-api = TikTokApi.get_instance()
+api = TikTokApi.get_instance(use_test_endpoints=True)
 
 file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
