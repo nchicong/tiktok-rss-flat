@@ -9,7 +9,7 @@ from html import escape
 # Custom Domain
 ghPagesURL = "https://nchicong.github.io/tiktok-rss-flat/"
 
-api = TikTokApi.get_instance(use_test_endpoints=True, proxy="64.124.38.138:8080")
+api = TikTokApi.get_instance(use_test_endpoints=True)
 
 file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
@@ -32,7 +32,7 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
         # user = row['username']
         user = row;
 
-        tiktoks = api.by_username(user, count=count)
+        tiktoks = api.by_username(user, count=count, custom_verifyFp="verify_9f7cfc747acd73df633a273b257f468a")
         
         # fg = FeedGenerator()
         # fg.id('https://www.tiktok.com/@' + user)
