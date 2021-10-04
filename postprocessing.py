@@ -32,7 +32,7 @@ with urllib.request.urlopen("https://jsonblob.com/api/jsonBlob/283f6f37-f78c-11e
         # user = row['username']
         user = row;
 
-        tiktoks = api.by_username(user, count=count, custom_verifyFp="verify_ku6wek7i_IMYmI3VJ_gpcS_4SrW_9zqU_pj3w1O1UdCLp")
+        tiktoks = api.by_username(user, count=count)
         
         # fg = FeedGenerator()
         # fg.id('https://www.tiktok.com/@' + user)
