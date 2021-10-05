@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>Subscriptions of nchicong</title>
+  </head>
+  <body>
+    <outline text="instantenglish" title="instantenglish" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/instantenglish.xml" />
+    <outline text="tuyennguyen_tiktok" title="tuyennguyen_tiktok" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/tuyennguyen_tiktok.xml" />
+    <outline text="daotrangnhungg" title="daotrangnhungg" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/daotrangnhungg.xml" />
+    <outline text="iloveyousomuch_1314" title="iloveyousomuch_1314" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/iloveyousomuch_1314.xml" />
+    <outline text="limi.thoughts" title="limi.thoughts" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/limi.thoughts.xml" />
+    <outline text="lykadailyenglish" title="lykadailyenglish" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/lykadailyenglish.xml" />
+    <outline text="hihihappyyy" title="hihihappyyy" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/hihihappyyy.xml" />
+    <outline text="ielts.journey" title="ielts.journey" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/ielts.journey.xml" />
+    <outline text="acrazymind.vn" title="acrazymind.vn" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/acrazymind.vn.xml" />
+    <outline text="dlwr.official" title="dlwr.official" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/dlwr.official.xml" />
+    <outline text="fattyguava" title="fattyguava" type="rss" xmlUrl="https://nchicong.github.io/tiktok-rss-flat/rss/fattyguava.xml" />
+    
+  </body>
+</opml>
